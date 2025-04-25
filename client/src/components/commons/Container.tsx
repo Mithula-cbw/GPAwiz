@@ -1,16 +1,24 @@
 import React from 'react';
 
 interface ContainerProps {
-    percentageX: number; // Accept a percentage for width
-    percentageY?: number; // Accept a percentage for height (optional)
-    children?: React.ReactNode; // Allow optional children
+    percentageX: number;
+    percentageY?: number;
+    children?: React.ReactNode;
+    className?: string; // for inner container
+    outerClassName?: string; // optional for outer container
 }
 
-const Container: React.FC<ContainerProps> = ({ percentageX, percentageY = 100, children }) => {
+const Container: React.FC<ContainerProps> = ({
+                                                 percentageX,
+                                                 percentageY = 100,
+                                                 children,
+                                                 className = '',
+                                                 outerClassName = ''
+                                             }) => {
     return (
-        <div className="w-full h-full">
+        <div className={`w-full ${outerClassName}`}>
             <div
-                className="mx-auto h-full"
+                className={`mx-auto h-full ${className}`}
                 style={{ width: `${percentageX}%`, height: `${percentageY}%` }}
             >
                 {children}

@@ -1,12 +1,11 @@
-import React from 'react';
-import { Navigate, Route, Routes } from 'react-router-dom';
-import Header from './components/commons/Header';
+import { Route, Routes } from 'react-router-dom';
+import Home from "@/layouts/Home.tsx";
 
 
 export const AppRoutes = () => {
   return (
     <Routes>
-      <Route path="/" element={<Header />} />
+      <Route path="/" element={<Home />} />
     </Routes>
   );
 };
